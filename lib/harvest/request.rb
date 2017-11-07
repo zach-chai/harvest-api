@@ -9,16 +9,18 @@ module Harvest
     end
 
     def get
-      @connection.get do |req|
-        req.url @path, @params
-      end
+      res = @connection.get do |req|
+              req.url @path, @params
+            end
+      Response.new res
     end
 
     def post
-      @connection.post do |req|
-        req.url @path
-        req.body = @params
-      end
+      res = @connection.post do |req|
+              req.url @path
+              req.body = @params
+            end
+      Response.new res
     end
   end
 end

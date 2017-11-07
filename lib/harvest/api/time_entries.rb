@@ -3,28 +3,28 @@ module Harvest
     class TimeEntries < Base
       def all params = {}
         res = Request.new(@connection, "#{collection_name}", params).get
-        if res.status == 200
+        if res.success?
           resources = res.body['time_entries'].map { |te| resource.new(te) }
         else
-          { status: res.status, body: res.body }
+          res.error
         end
       end
 
       def find id
         res = Request.new(@connection, "#{collection_name}/#{id}").get
-        if res.status == 200
+        if res.success?
           resource.new(res.body)
         else
-          { status: res.status, body: res.body }
+          res.error
         end
       end
 
       def create body
         res = Request.new(@connection, "#{collection_name}", body).post
-        if res.status == 201
+        if res.success?
           resource.new(res.body)
         else
-          { status: res.status, body: res.body }
+          res.error
         end
       end
 
