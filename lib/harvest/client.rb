@@ -1,5 +1,9 @@
+require 'harvest/client/time_entries'
+
 module Harvest
   class Client
+    include TimeEntries
+
     BASE_URL = 'https://api.harvestapp.com/v2'.freeze
 
     attr_reader :connection
@@ -18,10 +22,6 @@ module Harvest
 
         conn.adapter Faraday.default_adapter
       end
-    end
-
-    def time_entries
-      Api::TimeEntries.new(connection)
     end
 
     def me

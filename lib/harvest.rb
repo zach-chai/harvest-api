@@ -11,9 +11,6 @@ require 'harvest/response'
 require 'harvest/resource/base'
 require 'harvest/resource/time_entry'
 
-require 'harvest/api/base'
-require 'harvest/api/time_entries'
-
 module Harvest
   class << self
     def client *args

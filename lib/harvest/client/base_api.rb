@@ -1,6 +1,6 @@
 module Harvest
-  module Api
-    class Base
+  class Client
+    class BaseApi
       def initialize conn
         @connection = conn
       end
