@@ -27,7 +27,6 @@ module Harvest
                   :cost_rate,
                   :created_at,
                   :updated_at
-
     end
   end
 end

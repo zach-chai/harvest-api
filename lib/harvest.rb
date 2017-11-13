@@ -10,6 +10,7 @@ require 'harvest/response'
 
 require 'harvest/resource/base'
 require 'harvest/resource/time_entry'
+require 'harvest/resource/user'
 
 module Harvest
   class << self

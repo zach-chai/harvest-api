@@ -3,7 +3,7 @@ module Harvest
     module Helpers
       module Find
         def find id
-          res = Request.new(@connection, "#{collection_name}/#{id}").get
+          res = Request.new(@connection, build_url(id)).get
           if res.success?
             resource.new(res.body)
           else

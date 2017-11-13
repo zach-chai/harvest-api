@@ -1,14 +1,16 @@
+require 'harvest/client/users'
 require 'harvest/client/time_entries'
 
 module Harvest
   class Client
     include TimeEntries
+    include Users
 
     BASE_URL = 'https://api.harvestapp.com/v2'.freeze
 
     attr_reader :connection
 
-    def initialize access_token, account_id, user_agent
+    def initialize access_token: nil, account_id: nil, user_agent: nil
       @connection = Faraday.new(url: BASE_URL) do |conn|
         conn.request :json
         conn.request :oauth2, access_token, token_type: :bearer
@@ -22,10 +24,6 @@ module Harvest
 
         conn.adapter Faraday.default_adapter
       end
-    end
-
-    def me
-      Request.new(connection, 'users/me').get
     end
   end
 end

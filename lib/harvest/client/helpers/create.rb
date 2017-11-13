@@ -3,7 +3,7 @@ module Harvest
     module Helpers
       module Create
         def create body
-          res = Request.new(@connection, "#{collection_name}", body).post
+          res = Request.new(@connection,build_url, body).post
           if res.success?
             resource.new(res.body)
           else
