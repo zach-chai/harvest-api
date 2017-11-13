@@ -19,4 +19,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Create client with authentication credentials
+client = Harvest.client(access_token: 'd7f9bjnf9', account_id: '183950', user_agent: 'HarvestAPI (yourname@example.com)')
+
+# Fetch the authenticated user
+client.users.me
+```
