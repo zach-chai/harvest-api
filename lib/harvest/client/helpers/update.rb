@@ -1,9 +1,9 @@
 module Harvest
   class Client
     module Helpers
-      module Create
-        def create body
-          res = Request.new(@connection, build_url, body).post
+      module Update
+        def update id, body
+          res = Request.new(@connection, build_url(id), body).patch
           if res.success?
             resource.new(res.body)
           else

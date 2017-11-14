@@ -22,5 +22,20 @@ module Harvest
             end
       Response.new res
     end
+
+    def patch
+      res = @connection.patch do |req|
+              req.url @path
+              req.body = @params
+            end
+      Response.new res
+    end
+
+    def delete
+      res = @connection.delete do |req|
+        req.url @path
+      end
+      Response.new res
+    end
   end
 end

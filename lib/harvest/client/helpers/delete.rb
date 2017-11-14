@@ -1,9 +1,9 @@
 module Harvest
   class Client
     module Helpers
-      module Create
-        def create body
-          res = Request.new(@connection, build_url, body).post
+      module Delete
+        def delete id
+          res = Request.new(@connection, build_url(id)).delete
           if res.success?
             resource.new(res.body)
           else
