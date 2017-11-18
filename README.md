@@ -26,3 +26,7 @@ client = Harvest.client(access_token: 'd7f9bjnf9', account_id: '183950', user_ag
 # Fetch the authenticated user
 client.users.me
 ```
+
+## Supported features
+
+- Time Entries
